@@ -43,6 +43,24 @@
                                         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
                                         </fb:login-button>
 
+
+                                        fb-profile-picture: <div id="fb-profile-picture"></div>
+                                        name: <div id="name"></div>
+                                        user-id: <div id="user-id"></div>
+                                        work: <div id="work"></div>
+                                        birthday: <div id="birthday"></div>
+                                        education: <div id="education"></div>
+
+                                        <p>1) Click login</p>
+                                        <div class="fb-login-button" data-scope="email,user_birthday,user_hometown,user_location,user_website,user_work_history,user_about_me
+" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+                                        <p>2) Click load data</p>
+                                        <button id='load'>Load data</button>
+
+
+
+
+
                                         <div id="status">
                                         </div>
 

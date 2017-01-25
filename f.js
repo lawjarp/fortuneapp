@@ -79,6 +79,26 @@ function testAPI() {
         document.getElementById('status').innerHTML =
           'Thanks for logging in, ' + response.name + '!';
     });
+    FB.api('/me', 
+        {fields: "id,about,age_range,picture,bio,birthday,context,email,first_name,gender,hometown,link,location,middle_name,name,timezone,website,work"}, 
+        function(response) {
+            console.log('API response', response);
+            $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
+            $("#name").append(response.name);
+            $("#user-id").append(response.id);
+            $("#work").append(response.gender);
+            $("#birthday").append(response.birthday);
+            $("#education").append(response.hometown);
+        }
+    );
+
+    FB.api('/me', function (response) {
+        console.log('Successful login for: ' + response.name);
+        document.getElementById('status').innerHTML =
+          'Thanks for logging in, ' + response. + '!';
+    });
+
+
     FB.api("/me/picture?width=600&height=600", function (response) {
                         document.getElementById("userphoto").src = response.data.url;
                     });
