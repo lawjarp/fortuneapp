@@ -79,6 +79,9 @@ function testAPI() {
         document.getElementById('status').innerHTML =
           'Thanks for logging in, ' + response.name + '!';
     });
+    FB.api("/me/picture?width=600&height=600", function (response) {
+                        document.getElementById("userphoto").src = response.data.url;
+                    });
 }
 
 
