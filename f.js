@@ -83,12 +83,13 @@ function testAPI() {
         {fields: "id,about,age_range,picture,bio,birthday,context,email,first_name,gender,hometown,link,location,middle_name,name,timezone,website,work"}, 
         function(response) {
             console.log('API response', response);
-            $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
+            
             $("#name").append(response.name);
             $("#user-id").append(response.id);
             $("#work").append(response.gender);
             $("#birthday").append(response.birthday);
             $("#education").append(response.hometown);
+            $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
         }
     );
 
