@@ -1,89 +1,86 @@
 ﻿
 var vapp = location.search.split('apprequested=')[1];
-
+fbload();
 
 var acc;
 var uniqueno;
 var info;
-window.fbAsyncInit = function () {
-    FB.init({
-        appId: '1267092980051863',
-        xfbml: true,
-        version: 'v2.8',
-        cookie: true,
-        status: true,
-        oauth: true,
-        frictionlessRequests: true
-                
-    });
 
-    function onLogin(response) {
-        if (response.status == 'connected') {
+function fbload() {
 
-            FB.api('/me', function (data) {
-                info = data;
-                console.log(info);
-                var iid = "" + data.id + " ";
-                        
-                generateinfo();
-                document.getElementById("flashc").style.visibility = "visible";
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '1267092980051863',
+            xfbml: true,
+            version: 'v2.8',
+            cookie: true,
+            status: true,
+            oauth: true,
+            frictionlessRequests: true
 
-                document.getElementById("loadingscreen").style.visibility = "hidden";
-            });
-            FB.api("/me/picture?width=600&height=600", function (response) {
-                document.getElementById("userphoto").src = response.data.url;
-            });
+        });
+
+        function onLogin(response) {
+            if (response.status == 'connected') {
+
+                FB.api('/me', function (data) {
+                    info = data;
+                    console.log(info);
+                    var iid = "" + data.id + " ";
+
+                    generateinfo();
+                    document.getElementById("flashc").style.visibility = "visible";
+
+                    document.getElementById("loadingscreen").style.visibility = "hidden";
+                });
+                FB.api("/me/picture?width=600&height=600", function (response) {
+                    document.getElementById("userphoto").src = response.data.url;
+                });
 
 
+            }
         }
-    }
 
-    function loginpop() {
-        FB.login(function (response) {
-                    onLogin(response);
-        }, { scope: 'user_friends, email ' });
-       // checkstatus();
+    
 
+        FB.getLoginStatus(function (response) {
+            if (response.status == 'connected') {
+                onLogin(response);
 
-    }
-    //function checkstatus() {
-    //    if (response.status == 'connected') {
-    //        onLogin(response);
+            }
+            else {
+                document.getElementById("btnfblogin").style.visibility = "visible";
 
-    //    }
-    //    else {
-    //    }
-    //}
-
-    FB.getLoginStatus(function (response) {
-        if (response.status == 'connected') {
-            onLogin(response);
-
-            } 
-        else {
-            document.getElementById("btnfblogin").style.visibility = "visible";
-
-        }
-    });
+            }
+        });
 
 
-    // ADD ADDITIONAL FACEBOOK CODE HERE
+        // ADD ADDITIONAL FACEBOOK CODE HERE
 
 
 
 
-};
+    };
 
 
-(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) { return; }
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1267092980051863";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1267092980051863";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
+}
 
+function fblogin() {
+    console.log("loginpop");
+    FB.login(function (response) {
+        onLogin(response);
+    }, { scope: 'user_friends, email' });
+    console.log("loggedin");
+    fbload();
+}
 
 ///////////////////
 
