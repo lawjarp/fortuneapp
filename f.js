@@ -27,7 +27,11 @@ function checkLoginState() {
     FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
     });
+
+
 }
+
+
 
 window.fbAsyncInit = function () {
     FB.init({
@@ -50,9 +54,42 @@ window.fbAsyncInit = function () {
     //
     // These three cases are handled in the callback function.
 
+    //FB.getLoginStatus(function (response) {
+    //    statusChangeCallback(response);
+    //});
+
+
     FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
-    });
+                if (response.status == 'connected') {
+                    onLogin(response);
+
+                } else {
+                    FB.login(function (response) {
+                        onLogin(response);
+                    }, { scope: 'user_friends, email ' });
+                }
+            });
+        function onLogin(response) {
+                    if (response.status == 'connected') {
+
+                        FB.api('/me', function (data) {
+                            info = data;
+                            console.log(info);
+                            var iid = "" + data.id + " ";
+                        
+                            generateinfo();
+                            document.getElementById("flashc").style.visibility = "visible";
+
+                            document.getElementById("loadingscreen").style.visibility = "hidden";
+                        });
+                        FB.api("/me/picture?width=600&height=600", function (response) {
+                            document.getElementById("userphoto").src = response.data.url;
+                        });
+
+
+                    }
+                }
 
 };
 
@@ -138,6 +175,7 @@ function testAPI() {
 //            }, { scope: 'user_friends, email ' });
 //        }
 //    });
+
 
 //    // ADD ADDITIONAL FACEBOOK CODE HERE
 
