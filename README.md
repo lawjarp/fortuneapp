@@ -1,2 +1,0 @@
-# fortuneapp
-fortune teller
