@@ -7,7 +7,8 @@ function addlog(txtt) {
 
 window.fbAsyncInit = function () {
     FB.init({ appId: 'XXX', status: true, cookie: true, xfbml: true });
-
+    addlog("fbasynxinit ");
+    initiateFBLogin();
 };
 (function () {
     var e = document.createElement('script'); e.async = true;
@@ -37,6 +38,7 @@ function checkFacebookLogin() {
 }
 
 function initiateFBLogin() {
+    addlog("initiated");
     FB.login(function (response) {
         fetchUserDetail();
     });
