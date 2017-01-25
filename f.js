@@ -12,7 +12,8 @@ window.fbAsyncInit = function () {
                 oauth: true,
                 frictionlessRequests: true
                 
-            });
+    });
+
 };
 (function () {
     var e = document.createElement('script'); e.async = true;
@@ -39,9 +40,11 @@ function checkFacebookLogin() {
 
 function initiateFBLogin() {
     
-            fetchUserDetail();
-        
-   
+    console.log("initiated");
+    FB.login(function (response) {
+        fetchUserDetail();
+    });
+
     }
 //addlog("started");
 //var acc;
