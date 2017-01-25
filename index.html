@@ -19,11 +19,32 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        
-
+        <!--<style>
+           
+        </style>-->
+        <style>
+            #topbar {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                height: 60px;
+                background-color: #a82b4a;
+                z-index: 0;
+            }
+            #stopbar {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                height: 60px;
+                background-color: #a82b4a;
+                z-index: -1000;
+            }
+        </style>
 			<div id="wrapper">
 					<div id="main">
+                        <div id="topbar"></div>
 						<div class="inner">
+                            
 								<header id="header">
 									
 									<ul class="icons">
@@ -63,8 +84,8 @@
 
 				<!-- Sidebar -->
 					<div id="sidebar">
+                        <div id="stopbar"></div>
 						<div class="inner">
-
 							<!-- Section -->
 								<section>
 									<header class="major">
