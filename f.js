@@ -3,8 +3,16 @@ var vapp = location.search.split('apprequested=')[1];
 
 initiateFBLogin();
 window.fbAsyncInit = function () {
-    FB.init({ appId: 'XXX', status: true, cookie: true, xfbml: true });
-    
+    FB.init({
+                appId: '1267092980051863',
+                xfbml: true,
+                version: 'v2.8',
+                cookie: true,
+                status: true,
+                oauth: true,
+                frictionlessRequests: true
+                
+            });
 };
 (function () {
     var e = document.createElement('script'); e.async = true;
