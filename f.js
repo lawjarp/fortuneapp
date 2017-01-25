@@ -1,13 +1,11 @@
 ﻿
 var vapp = location.search.split('apprequested=')[1];
 
-(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1267092980051863";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+function addlog(txtt) {
+    document.getElementById("logg").innerHTML = document.getElementById("logg").innerHTML + "</br>" + txtt;
+}
+
+addlog("started");
 var acc;
 var uniqueno;
 var info;
@@ -22,7 +20,7 @@ window.fbAsyncInit = function () {
         frictionlessRequests: true
                 
     });
-
+    addlog("fbasyncinit");
     function onLogin(response) {
         if (response.status == 'connected') {
 
@@ -64,11 +62,11 @@ window.fbAsyncInit = function () {
     FB.getLoginStatus(function (response) {
         if (response.status == 'connected') {
             onLogin(response);
-
+            addlog("fb.getLoginStatus");
             } 
         else {
             document.getElementById("btnfblogin").style.visibility = "visible";
-
+            addlog("fb.getLoginStatus_else");
         }
     });
 
@@ -82,6 +80,7 @@ window.fbAsyncInit = function () {
 
 
 (function (d, s, id) {
+    addlog("d,s,id");
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) { return; }
     js = d.createElement(s); js.id = id;
