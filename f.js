@@ -1,8 +1,13 @@
 ﻿
 var vapp = location.search.split('apprequested=')[1];
 
-
-
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1267092980051863";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 var acc;
 var uniqueno;
 var info;
@@ -39,18 +44,34 @@ window.fbAsyncInit = function () {
         }
     }
 
+    function loginpop() {
+        FB.login(function (response) {
+                    onLogin(response);
+        }, { scope: 'user_friends, email ' });
+       // checkstatus();
+
+
+    }
+    //function checkstatus() {
+    //    if (response.status == 'connected') {
+    //        onLogin(response);
+
+    //    }
+    //    else {
+    //    }
+    //}
 
     FB.getLoginStatus(function (response) {
         if (response.status == 'connected') {
             onLogin(response);
 
-           } 
-        //else {
-        //    FB.login(function (response) {
-        //        onLogin(response);
-        //    }, { scope: 'user_friends, email ' });
-        //}
+            } 
+        else {
+            document.getElementById("btnfblogin").style.visibility = "visible";
+
+        }
     });
+
 
     // ADD ADDITIONAL FACEBOOK CODE HERE
 
@@ -60,6 +81,17 @@ window.fbAsyncInit = function () {
 };
 
 
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1267092980051863";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+
+///////////////////
 
 
 function fb_publish() {
