@@ -23,15 +23,11 @@ function fetchUserDetail() {
 }
 
 function checkFacebookLogin() {
-    FB.getLoginStatus(function (response) {
-        if (response.status === 'connected') {
-            fetchUserDetail();
-        }
-        else {
-            initiateFBLogin();
-        }
+    FB.login(function (response) {
+        fetchUserDetail();
     });
 }
+
 
 function initiateFBLogin() {
     
