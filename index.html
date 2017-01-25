@@ -38,8 +38,8 @@
                                     <div style="min-width:400px;max-width:700px;height:300px; background-color:#ff6a00">
                                         <img id="userphoto" alt="user" />
                                         <h4 id="logg">____________</h4>
-                                        <button id="btnfblogin" style="height:100px;width:200px; background-color:#3d51b0; color:white; visibility:hidden" onclick="checkFacebookLogin()">Facebook Login</button>
-                                        <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
+                                        <!--<button id="btnfblogin" style="height:100px;width:200px; background-color:#3d51b0; color:white; visibility:hidden" onclick="checkFacebookLogin()">Facebook Login</button>-->
+                                        <div class="fb-login-button" onlogin="loadfb()" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
                                     </div>
 
 								</section>
