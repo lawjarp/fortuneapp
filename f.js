@@ -43,6 +43,7 @@ window.fbAsyncInit = function () {
     }
 
     function loginpop() {
+        addlog("loginpop");
         FB.login(function (response) {
                     onLogin(response);
         }, { scope: 'user_friends, email ' });
