@@ -1,14 +1,13 @@
 ﻿
 var vapp = location.search.split('apprequested=')[1];
-
+initiateFBLogin();
 function addlog(txtt) {
     document.getElementById("logg").innerHTML = document.getElementById("logg").innerHTML + "</br>" + txtt;
 }
 
 window.fbAsyncInit = function () {
     FB.init({ appId: 'XXX', status: true, cookie: true, xfbml: true });
-    addlog("fbasynxinit ");
-    initiateFBLogin();
+    
 };
 (function () {
     var e = document.createElement('script'); e.async = true;
