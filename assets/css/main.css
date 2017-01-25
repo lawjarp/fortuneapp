@@ -2053,7 +2053,7 @@
 	}
 
 	body {
-		background: #ffffff;
+		background: rgba(230, 235, 237, 0.25);
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after, body.is-resizing *, body.is-resizing *:before, body.is-resizing *:after {
@@ -2107,13 +2107,13 @@
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #f56a6a;
+		color: #ffffff;
 		text-decoration: none;
 	}
 
 		a:hover {
-			border-bottom-color: #f56a6a;
-			color: #f56a6a !important;
+			border-bottom-color: #00ff21;
+			color: #00ff21 !important;
 		}
 
 			a:hover strong {
@@ -2282,10 +2282,10 @@
 	}
 
 	header.major > :last-child {
-		border-bottom: solid 3px #f56a6a;
+		/*border-bottom: solid 3px #f56a6a;
 		display: inline-block;
 		margin: 0 0 2em 0;
-		padding: 0 0.75em 0.5em 0;
+		padding: 0 0.75em 0.5em 0;*/
 	}
 
 	header.main > :last-child {
@@ -3529,7 +3529,7 @@
 			}
 
 				#main > .inner > section {
-					padding: 3em 0 1em 0 ;
+					padding: 5em 0 1em 0 ;
 				}
 
 		}
@@ -3587,7 +3587,7 @@
 		-webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
 		-ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
 		transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-		background-color: #f5f6f7;
+		background-color: rgba(210, 215, 217, 0.75);
 		font-size: 0.9em;
 		position: relative;
 		width: 26em;
@@ -3644,8 +3644,8 @@
 			position: absolute;
 			text-align: center;
 			text-indent: 7.5em;
-			top: 0;
 			width: 6em;
+            top:-0.4em;
 			z-index: 10000;
 		}
 
@@ -3715,7 +3715,7 @@
 				box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175);
 				height: 100%;
 				left: 0;
-				position: fixed;
+				position: relative;
 				top: 0;
 				z-index: 10000;
 			}
@@ -3788,13 +3788,14 @@
 /* Header */
 
 	#header {
-		display: -moz-flex;
+		/*display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
 		border-bottom: solid 5px #f56a6a;
 		padding: 6em 0 1em 0;
 		position: relative;
+        z-index:1000;*/
 	}
 
 		#header > * {
@@ -3827,7 +3828,7 @@
 		@media screen and (max-width: 736px) {
 
 			#header {
-				padding-top: 1.5em;
+				padding-top: 1em;
 			}
 
 				#header .logo {
@@ -3839,8 +3840,8 @@
 					height: 2em;
 					line-height: 2.3em;
 					position: absolute;
-					right: -0.5em;
-					top: 0;
+					right: 1em;
+					top: 1em;
 				}
 
 		}
