@@ -38,9 +38,10 @@ function checkFacebookLogin() {
 
 function initiateFBLogin() {
     addlog("initiated");
-    FB.login(function (response) {
-        fetchUserDetail();
-    });
+    FB.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
+            fetchUserDetail();
+        }
 }
 
 //addlog("started");
