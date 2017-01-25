@@ -41,8 +41,9 @@ function initiateFBLogin() {
             fetchUserDetail();
         }
         console.log("aa");
-}
+    })
 
+    }
 //addlog("started");
 //var acc;
 //var uniqueno;
