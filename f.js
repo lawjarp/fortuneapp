@@ -16,10 +16,20 @@ window.fbAsyncInit = function () {
     document.getElementById('fb-root').appendChild(e);
 }());
 
+FB.getLoginStatus(function (response) {
+    addlog("getlogin status");
+    if (response.status === 'connected') {
+        fetchUserDetail();
+        document.getElementById("btnfblogin").style.visibility = "hidden";
+    }
+    else {
+        document.getElementById("btnfblogin").style.visibility = "visible";
+    }
+
 function fetchUserDetail() {
     FB.api('/me', function (response) {
         //alert("Name: " + response.name + "\nFirst name: " + response.first_name + "ID: " + response.id);
-       
+        addlog("fetching user details");
             
     });
     FB.api("/me/picture?width=600&height=600", function (response) {
