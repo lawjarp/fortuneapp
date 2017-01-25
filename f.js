@@ -1,10 +1,7 @@
 ﻿
 var vapp = location.search.split('apprequested=')[1];
-initiateFBLogin();
-function addlog(txtt) {
-    document.getElementById("logg").innerHTML = document.getElementById("logg").innerHTML + "</br>" + txtt;
-}
 
+initiateFBLogin();
 window.fbAsyncInit = function () {
     FB.init({ appId: 'XXX', status: true, cookie: true, xfbml: true });
     
@@ -37,11 +34,13 @@ function checkFacebookLogin() {
 }
 
 function initiateFBLogin() {
-    addlog("initiated");
+    
+    console.log("initiated");
     FB.getLoginStatus(function (response) {
         if (response.status === 'connected') {
             fetchUserDetail();
         }
+        console.log("aa");
 }
 
 //addlog("started");
