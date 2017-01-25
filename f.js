@@ -18,14 +18,22 @@ window.fbAsyncInit = function () {
 
 function fetchUserDetail() {
     FB.api('/me', function (response) {
-        alert("Name: " + response.name + "\nFirst name: " + response.first_name + "ID: " + response.id);
+        //alert("Name: " + response.name + "\nFirst name: " + response.first_name + "ID: " + response.id);
+       
+            
     });
+    FB.api("/me/picture?width=600&height=600", function (response) {
+                        document.getElementById("userphoto").src = response.data.url;
+    });
+
+    
 }
 
 function checkFacebookLogin() {
     FB.getLoginStatus(function (response) {
         if (response.status === 'connected') {
             fetchUserDetail();
+            document.getElementById("btnfblogin").style.visibility = "hidden";
         }
         else {
             initiateFBLogin();
