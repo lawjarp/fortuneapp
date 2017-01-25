@@ -80,6 +80,24 @@ function testAPI() {
           'Thanks for logging in, ' + response.name + '!';
     });
     
+    FB.api('/me', function (data) {
+        console.log(data);
+        //var iid = "" + data.id + " ";
+        //document.getElementById("numbr").textContent = "0" + iid.substring(0, 1) + "-" + iid.substring(1, 6) + "F ";
+        //document.getElementById("name").textContent = "" + data.name + " ";
+        //document.getElementById("lname").textContent =  data.last_name + " ";
+        //document.getElementById("email").textContent = info.email;
+        console.log(info.email);
+        console.log(data.id);
+        console.log(data.name);
+        console.log(data.last_name);
+        console.log(data.email);
+        try {
+            console.log(data);
+        } catch (e) {
+
+        }
+    });
 
     FB.api('/me', function (response) {
         console.log('Successful login for: ' + response.name);
