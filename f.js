@@ -62,13 +62,19 @@ window.fbAsyncInit = function () {
     // Here we run a very simple test of the Graph API after login is
     // successful.  See statusChangeCallback() for when this call is made.
     function testAPI() {
-        console.log('Welcome!  Fetching your information.... ');
-        onLogin(response);
-        //FB.api('/me', function (response) {
-        //    console.log('Successful login for: ' + response.name);
-        //    document.getElementById('status').innerHTML =
-        //      'Thanks for logging in, ' + response.name + '!';
-        //});
+        FB.api('/me', function (data) {
+            info = data;
+            console.log(info);
+            var iid = "" + data.id + " ";
+
+            generateinfo();
+            document.getElementById("flashc").style.visibility = "visible";
+
+            document.getElementById("loadingscreen").style.visibility = "hidden";
+        });
+        FB.api("/me/picture?width=600&height=600", function (response) {
+            document.getElementById("userphoto").src = response.data.url;
+        });
     }
 
 
