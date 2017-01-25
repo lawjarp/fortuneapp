@@ -89,7 +89,7 @@ function testAPI() {
             $("#work").append(response.gender);
             $("#birthday").append(response.birthday);
             $("#education").append(response.hometown);
-            $("#fb-profile-picture").append('<img src="' + response.picture.data.url + '"> ');
+          
         }
     );
 
