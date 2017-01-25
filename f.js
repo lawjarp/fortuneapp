@@ -41,8 +41,7 @@ function initiateFBLogin() {
     
             fetchUserDetail();
         
-    })
-
+   
     }
 //addlog("started");
 //var acc;
