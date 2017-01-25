@@ -79,24 +79,15 @@ function testAPI() {
         document.getElementById('status').innerHTML =
           'Thanks for logging in, ' + response.name + '!';
     });
-    FB.api('/me', 
-        {fields: "id,about,age_range,picture,bio,birthday,context,email,first_name,gender,hometown,link,location,middle_name,name,timezone,website,work"}, 
-        function(response) {
-            console.log('API response', response);
-            
-            $("#name").append(response.name);
-            $("#user-id").append(response.id);
-            $("#work").append(response.gender);
-            $("#birthday").append(response.birthday);
-            $("#education").append(response.hometown);
-          
-        }
-    );
+    
 
     FB.api('/me', function (response) {
         console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
+        document.getElementById('username').innerHTML =
           'Thanks for logging in, ' + response.name + '!';
+        document.getElementById('aboutme').innerHTML =
+          'Thanks for logging in, ' + response.about + '!';
+
     });
 
 
