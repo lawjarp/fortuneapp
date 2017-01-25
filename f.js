@@ -77,9 +77,10 @@ function fblogin() {
     console.log("loginpop");
     FB.login(function (response) {
         onLogin(response);
+        fbload();
     }, { scope: 'user_friends, email' });
     console.log("loggedin");
-    fbload();
+    
 }
 
 ///////////////////
