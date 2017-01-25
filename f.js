@@ -39,12 +39,8 @@ function checkFacebookLogin() {
 
 function initiateFBLogin() {
     
-    console.log("initiated");
-    FB.getLoginStatus(function (response) {
-        if (response.status === 'connected') {
             fetchUserDetail();
-        }
-        console.log("aa");
+        
     })
 
     }
