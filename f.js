@@ -97,7 +97,6 @@ function testAPI() {
     FB.api("/me/picture?width=600&height=600", function (response) {
         document.getElementById("userphoto").src = response.data.url;
      
-        console.log(user.name + "  user");
         loadapp(location.search.split('appname=')[1]);
                     });
 }
@@ -116,8 +115,7 @@ function loadapp(appname) {
      anytext3 = document.getElementById("anytext3");
      flashcard.style.height = "300px";
 
-     console.log(user.name + "  user1");
-
+     
     switch (appname) {
         case "luckyno":
             luckyno();
@@ -140,7 +138,7 @@ function loadapp(appname) {
 
 function luckyno() {
     flashcard.style.backgroundColor = "ff0000";
-    anytext1.innerHTML = "wonderful";
+    anytext1.innerHTML = user.name;
     anytext1.style.fontSize = "20px";
     anytext1.style.top = "100px";
     anytext1.style.left = "150px";
@@ -164,7 +162,7 @@ function luckyno() {
         val = val.toString().substr(0, 1);
     }
     
-    anytext3.innerHTML = "X";
+    anytext3.innerHTML = val;
     anytext3.style.fontSize = "300px";
     anytext3.style.top = "-100px";
     anytext3.style.left = "250px";
