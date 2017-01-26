@@ -89,7 +89,6 @@ function testAPI() {
 
 
     FB.api('/me', function (response) {
-        document.getElementById('username').innerHTML = response.name;
         user = response;
 
     });
@@ -132,7 +131,7 @@ function loadapp(appname) {
             break;
 
         default:
-            flashcard.style.height = "0px";
+            luckyno();
     }
 }
 
