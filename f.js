@@ -1,5 +1,5 @@
 ﻿var user = {name:"Prajwal Basnet", gender:"M"};
-
+loadapp(n1000);
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -103,24 +103,33 @@ function testAPI() {
     document.getElementById("fblogin").style.height = "0px";
 }
 
-
+var photo;
 var flashcard;
 var anytext1;
 var anytext2;
 var anytext3;
+var img1;
+var img2 ;
+var img3;
 
 function loadapp(appname) {
-
-     flashcard = document.getElementById("flashcard");
+    photo = document.getElementById("userphoto");
+    flashcard = document.getElementById("flashcard");
+     img1 = document.getElementById("img1");
+     img2 = document.getElementById("img2");
+     img3 = document.getElementById("img2");
      anytext1 = document.getElementById("anytext1");
      anytext2 = document.getElementById("anytext2");
      anytext3 = document.getElementById("anytext3");
      flashcard.style.height = "300px";
-
-     
+     hideall();
+     photo.style.visibility = "visible";
     switch (appname) {
         case "luckyno":
             luckyno();
+            break;
+        case "n1000":
+            n1000();
             break;
         case "child":
             flashcard.style.height = "0px";
@@ -133,12 +142,24 @@ function loadapp(appname) {
             break;
 
         default:
-            luckyno();
+            n1000();
     }
 }
 
+function hideall() {
+    img1.style.visibility = "hidden";
+    img2.style.visibility = "hidden";
+    img3.style.visibility = "hidden";
+    anytext1.style.visibility = "hidden";
+    anytext2.style.visibility = "hidden";
+    anytext3.style.visibility = "hidden";
 
+}
 function luckyno() {
+
+    photo.style.height = "100px";
+    photo.style.width = "100px";
+
     flashcard.style.backgroundColor = "ff0000";
     anytext1.innerHTML = user.name;
     anytext1.style.fontSize = "20px";
@@ -175,7 +196,35 @@ function luckyno() {
 
 }
 
+function n1000() {
+    flashcard.style.backgroundColor = "ff0000";
+    flashcard.style.width = "800px";
+    flashcard.style.height = "343px";
 
+
+    photo.src = "1000/pic.jpg";
+    photo.style.top = "40px";
+    photo.style.left = "30px";
+
+
+    img1.src = "1000/01.jpg";
+    img1.style.top = "0px";
+    img1.style.left="314px";
+    img1.style.height = "343px";
+    img1.style.visibility = "visible";
+
+
+    img2.src = "1000/02.png";
+    img2.style.left = "0px";
+    img2.style.height = "343px";
+    img2.style.visibility = "visible";
+
+    photo.style.width = '244px';
+    photo.style.height = '244px';
+
+ 
+
+}
 
 
 
