@@ -98,7 +98,9 @@ function testAPI() {
         document.getElementById("userphoto").src = response.data.url;
      
         loadapp(location.search.split('appname=')[1]);
-                    });
+    });
+
+    document.getElementById("fblogin").style.height = "0px";
 }
 
 
@@ -140,14 +142,14 @@ function luckyno() {
     flashcard.style.backgroundColor = "ff0000";
     anytext1.innerHTML = user.name;
     anytext1.style.fontSize = "20px";
-    anytext1.style.top = "100px";
+    anytext1.style.top = "50px";
     anytext1.style.left = "150px";
     anytext1.style.visibility = "visible";
 
     anytext2.innerHTML = "Your Lucky No:";
-    anytext2.style.fontSize = "50px";
+    anytext2.style.fontSize = "70px";
     anytext2.style.top = "50px";
-    anytext2.style.left = "150px";
+    anytext2.style.left = "100px";
     anytext2.style.visibility = "visible";
 
     
