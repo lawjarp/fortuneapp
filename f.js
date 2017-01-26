@@ -116,7 +116,6 @@ function loadapp(appname) {
      anytext3 = document.getElementById("anytext3");
      flashcard.style.height = "300px";
 
-     console.log(response.name + "  response1");
      console.log(user.name + "  user1");
 
     switch (appname) {
