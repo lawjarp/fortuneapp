@@ -5,12 +5,12 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-        <script src="f.js"></script>
+        
 
 	</head>
 	<body>
         <div id="fb-root"></div>
-        <script>
+        <!--<script>
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
@@ -18,10 +18,11 @@
                 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1267092980051863";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-        </script>
+        </script>-->
         <!--<style>
            
         </style>-->
+        
         <style>
             #topbar {
                 position: absolute;
@@ -30,44 +31,58 @@
                 height: 60px;
                 background-color: #a82b4a;
                 z-index: 0;
+                left:0px;
+                text-align:right;
             }
-            #stopbar {
-                position: absolute;
-                top: 0px;
-                width: 100%;
-                height: 60px;
-                background-color: #a82b4a;
-                z-index: -1000;
+            #flashcard {
+                min-width:400px;
+                max-width:700px;
+                height:300px; 
+                background-color:#e5e5e5;
+                position:relative;
+                overflow:hidden;
             }
+            .x {
+            position:absolute;
+            visibility:hidden;
+            }
+            
         </style>
 			<div id="wrapper">
 					<div id="main">
-                        <div id="topbar"></div>
+                        <div id="topbar">
+                            <header id="header">
+                                
+                                <ul class="icons">
+                                    <button style="width:100px" onclick="loadapp()">LOAD APP</button>
+                                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                                    <li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+                                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                                    <li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
+                                    <li style="width:20px"></li>
+                                </ul>
+                            </header>
+                           
+
+                        </div>
+
 						<div class="inner">
                             
-								<header id="header">
-									
-									<ul class="icons">
-										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
-									</ul>
-								</header>
+								
 
 								<section>
-                                    <div style="min-width:400px;max-width:700px;height:300px; background-color:#ff6a00">
+                                    <div id="flashcard" >
                                         <img id="userphoto" style="width:100px" alt="user" />
+                                        <img id="img1" />
 
-                                        <h4 id="username">......</h4><br />
-                                        <h4 id="aboutme">......</h4><br />
+                                        
+                                        <h4 id="anytext1" class="x">..</h4><br />
+                                        <h4 id="anytext2" class="x">..</h4><br />
+                                        <h4 id="anytext3" class="x">..</h4><br />
 
                                         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
                                         </fb:login-button>
-
-
-
 
 
 
@@ -76,6 +91,8 @@
 
 
                                     </div>
+                                    
+
 
 								</section>
 
@@ -84,7 +101,7 @@
 
 				<!-- Sidebar -->
 					<div id="sidebar">
-                        <div id="stopbar"></div>
+                        
 						<div class="inner">
 							<!-- Section -->
 								<section>
@@ -93,16 +110,16 @@
 									</header>
 									<div class="mini-posts">
 										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                                            <a href="#" class="image" onclick="loadapp('luckyno')"><img src="images/pic01.jpg" alt="" /></a>
+											<p>Find Your Lucky Number</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                                            <a href="#" class="image" onclick="loadapp('child')"><img src="images/pic08.jpg" alt="" /></a>
+											<p>Find How many chile will you have.</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                                            <a href="#" class="image" onclick="loadapp('nextlife')"><img src="images/pic09.jpg" alt="" /></a>
+											<p>Find what will yo become in next Life.</p>
 										</article>
 									</div>
 									<ul class="actions">
@@ -137,6 +154,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+        <script src="f.js"></script>
             
 	</body>
 </html>

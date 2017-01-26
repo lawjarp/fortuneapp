@@ -1,4 +1,6 @@
-﻿function statusChangeCallback(response) {
+﻿var user = {name:"Prajwal Basnet", gender:"M"};
+
+function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -30,7 +32,6 @@ function checkLoginState() {
 
 
 }
-
 
 
 window.fbAsyncInit = function () {
@@ -74,190 +75,108 @@ window.fbAsyncInit = function () {
 // successful.  See statusChangeCallback() for when this call is made.
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function (response) {
-        console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
-          'Thanks for logging in, ' + response.name + '!';
-    });
+    //FB.api('/me', function (response) {
+    //    console.log('Successful login for: ' + response.name);
+    //    document.getElementById('status').innerHTML =
+    //      'Thanks for logging in, ' + response.name + '!';
+    //});
     
-    FB.api('/me', function (data) {
-        console.log(data);
+    //FB.api('/me', function (data) {
+    //    console.log(data);
        
         
-    });
+    //});
+
 
     FB.api('/me', function (response) {
-        console.log('Successful login for: ' + response.name);
-        document.getElementById('username').innerHTML =
-          'Thanks for logging in, ' + response.name + '!';
-        document.getElementById('aboutme').innerHTML =
-          'Thanks for logging in, ' + response.about + '!';
+        document.getElementById('username').innerHTML = response.name;
+        user = response;
 
     });
 
 
     FB.api("/me/picture?width=600&height=600", function (response) {
-                        document.getElementById("userphoto").src = response.data.url;
+        document.getElementById("userphoto").src = response.data.url;
+        loadapp(location.search.split('appname=')[1]);
                     });
+}
+
+
+var flashcard;
+var anytext1;
+var anytext2;
+var anytext3;
+
+function loadapp(appname) {
+
+     flashcard = document.getElementById("flashcard");
+     anytext1 = document.getElementById("anytext1");
+     anytext2 = document.getElementById("anytext2");
+     anytext3 = document.getElementById("anytext3");
+     flashcard.style.height = "300px";
+
+
+
+    switch (appname) {
+        case "luckyno":
+            luckyno();
+            break;
+        case "child":
+            flashcard.style.height = "0px";
+            break;
+        case "nextlife":
+            flashcard.style.height = "0px";
+            break;
+        case "prevlife":
+            flashcard.style.height = "0px";
+            break;
+
+        default:
+            flashcard.style.height = "0px";
+    }
+}
+
+
+function luckyno() {
+    flashcard.style.backgroundColor = "ff0000";
+    anytext1.innerHTML = "wonderful";
+    anytext1.style.fontSize = "20px";
+    anytext1.style.top = "100px";
+    anytext1.style.left = "150px";
+    anytext1.style.visibility = "visible";
+
+    anytext2.innerHTML = "Your Lucky No:";
+    anytext2.style.fontSize = "50px";
+    anytext2.style.top = "50px";
+    anytext2.style.left = "150px";
+    anytext2.style.visibility = "visible";
+
+    
+
+    var word = user.name;
+    var sum = 0;
+    for (var i = word.length - 1; i >= 0; i--) {
+        sum += (word.charCodeAt(i) - 96);
+    }
+    var val = Math.abs(sum);
+    if (val > 9) {
+        val = val.toString().substr(0, 1);
+    }
+    
+    anytext3.innerHTML = "X";
+    anytext3.style.fontSize = "300px";
+    anytext3.style.top = "-100px";
+    anytext3.style.left = "250px";
+    anytext3.style.color = "#ff0000";
+    anytext3.style.opacity = "0.5";
+    anytext3.style.visibility = "visible";
+
+
 }
 
 
 
 
-
-
-
-//var vapp = location.search.split('apprequested=')[1];
-
-//(function (d, s, id) {
-//    var js, fjs = d.getElementsByTagName(s)[0];
-//    if (d.getElementById(id)) return;
-//    js = d.createElement(s); js.id = id;
-//    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1267092980051863";
-//    fjs.parentNode.insertBefore(js, fjs);
-//}(document, 'script', 'facebook-jssdk'));
-//var acc;
-//var uniqueno;
-//var info;
-//window.fbAsyncInit = function () {
-//    FB.init({
-//        appId: '1267092980051863',
-//        xfbml: true,
-//        version: 'v2.8',
-//        cookie: true,
-//        status: true,
-//        oauth: true,
-//        frictionlessRequests: true
-                
-//    });
-
-//    function onLogin(response) {
-//        if (response.status == 'connected') {
-
-//            FB.api('/me', function (data) {
-//                info = data;
-//                console.log(info);
-//                var iid = "" + data.id + " ";
-                        
-//                generateinfo();
-//                document.getElementById("flashc").style.visibility = "visible";
-
-//                document.getElementById("loadingscreen").style.visibility = "hidden";
-//            });
-//            FB.api("/me/picture?width=600&height=600", function (response) {
-//                document.getElementById("userphoto").src = response.data.url;
-//            });
-
-
-//        }
-//    }
-
-
-//    FB.getLoginStatus(function (response) {
-//        if (response.status == 'connected') {
-//            onLogin(response);
-
-//        } else {
-//            FB.login(function (response) {
-//                onLogin(response);
-//            }, { scope: 'user_friends, email ' });
-//        }
-//    });
-
-
-//    // ADD ADDITIONAL FACEBOOK CODE HERE
-
-
-
-
-//};
-
-
-//(function (d, s, id) {
-//    var js, fjs = d.getElementsByTagName(s)[0];
-//    if (d.getElementById(id)) { return; }
-//    js = d.createElement(s); js.id = id;
-//    //js.src = "//connect.facebook.net/en_US/sdk.js";
-//    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1198972333514156";
-//    fjs.parentNode.insertBefore(js, fjs);
-//}(document, 'script', 'facebook-jssdk'));
-
-
-////(function (d, s, id) {
-////    var js, fjs = d.getElementsByTagName(s)[0];
-////    if (d.getElementById(id)) {
-////        return;
-////    }
-////    js = d.createElement(s);
-////    js.id = id;
-////    js.src = "//connect.facebook.net/en_US/sdk.js";
-////    fjs.parentNode.insertBefore(js, fjs);
-////}(document, 'script', 'facebook-jssdk'));
-
-////var friends = new Array();
-////function inviteothers() {
-////    FB.ui({
-////        method: 'apprequests',
-////        message: "Make your nakkali driving license now"
-////    }, function (response) {
-////        if (!response || response.error) {
-////            inviteothers();
-////        }
-////        else {
-
-////        }
-////    }
-////    );
-////}
-
-
-
-/////////////////////
-
-
-//function fb_publish() {
-//    FB.ui(
-//  {
-//      method: 'feed',
-//      name: "" + info.name + "'s Lucky Number is  " + luckyno + "",
-//      link: 'https://mylifeapp.herokuapp.com/',
-//      picture: 'https://bhabishyabani.herokuapp.com/luckyno.jpg',
-//      caption: "" + info.name + " को लागि हाम्रो भबिश्यबाणी । ",
-//      description: "तपाईंको के हुन्छ त ? थाहा पाउनको लागि यहाँ CLICK गर्नुहोस् । ",
-//  },
-//  function (response) {
-//      if (response && response.post_id) { 
-//          // alert('Post was published.');
-//      } else {
-//          alert('Post was not published.');
-//      }
-//  }
-//);
-//}
-
-
-//////////////////// sum name
-//var posttitle;
-//var luckyno;
-//function generateinfo() {
-//    //var d = new Date();
-//    //var n = d.getDay();
-//    var word = info.name;
-//    var sum = 0;
-//    for (var i = word.length - 1; i >= 0; i--) {
-//        sum += (word.charCodeAt(i) - 96);
-//    }
-//    var val = Math.abs(sum);
-//    if (val > 9) {
-//        val = val.toString().substr(0, 1);
-
-//    }
-//    luckyno = val;
-//    //document.getElementById("aftername").innerHTML = "Your Lucky Number is  "+val+"";
-//    document.getElementById("aftername").textContent = "" + val + " ";
-           
-
-//}
 
 
 
