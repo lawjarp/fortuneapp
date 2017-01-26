@@ -1,5 +1,5 @@
 ﻿var user = {name:"Prajwal Basnet", gender:"M"};
-loadapp(n1000);
+
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -202,7 +202,7 @@ function n1000() {
     flashcard.style.height = "343px";
 
 
-    photo.src = "1000/pic.jpg";
+    //photo.src = "1000/pic.jpg";
     photo.style.top = "40px";
     photo.style.left = "30px";
 
@@ -221,8 +221,12 @@ function n1000() {
 
     photo.style.width = '244px';
     photo.style.height = '244px';
-
- 
+    var viewPortWidth = document.getElementsByTagName('body')[0].clientWidth;
+    if (viewPortWidth<800) {
+        flashcard.style.zoom = viewPortWidth / 800;
+        //-moz-transform: scale(0.5);
+    }
+    
 
 }
 
