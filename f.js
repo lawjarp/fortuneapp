@@ -96,6 +96,8 @@ function testAPI() {
 
     FB.api("/me/picture?width=600&height=600", function (response) {
         document.getElementById("userphoto").src = response.data.url;
+        console.log(response.name + "  response");
+        console.log(user.name + "  user");
         loadapp(location.search.split('appname=')[1]);
                     });
 }
@@ -114,7 +116,8 @@ function loadapp(appname) {
      anytext3 = document.getElementById("anytext3");
      flashcard.style.height = "300px";
 
-
+     console.log(response.name + "  response1");
+     console.log(user.name + "  user1");
 
     switch (appname) {
         case "luckyno":
